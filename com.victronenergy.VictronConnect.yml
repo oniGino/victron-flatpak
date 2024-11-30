@@ -3,35 +3,41 @@ runtime: org.kde.Platform
 version: 6.11
 sdk: org.kde.Sdk
 runtime-version: '6.5'
-#command: VictronConnect
-only-arches:
-  - x86_64
+command: VictronConnect
+separate-locales: false
 modules:
   - krb5.json
-  - name: VictronConnectExtract
+  - name: VictronConnect
     buildsystem: simple
     build-commands:
-      - install -Dm755 apply_extra ${FLATPAK_DEST}/bin/apply_extra
+      - sed -i 's,Exec={EXEC},Exec=/usr/bin/flatpak run '${FLATPAK_ID}' %u,' VictronConnect.desktop
+      - sed -i 's,Icon=VictronConnect,Icon='${FLATPAK_ID}',' VictronConnect.desktop
+      - install -Dm644 VictronConnect.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
+      - install -Dm644 VictronConnect.png ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png
+      - mv squashfs-root/bin/* /app/bin
+      - mv squashfs-root/lib/* /app/lib
+      - mv squashfs-root/plugins /app
+      - mv squashfs-root/qml /app
+    post-install:
+      - install -D ${FLATPAK_ID}.metainfo.xml -t "${FLATPAK_DEST}/share/metainfo/"
     sources:
-      - type: extra-data 
+      - type: file 
+        only-arches:
+          - x86_64
         url: https://www.victronenergy.com/upload/software/VictronConnect-x86_64-v6.11.AppImage
-        filename: VictronConnect.AppImage
+        dest-filename: VictronConnect.AppImage
         sha256: 1bdbe636abc02506ed641e763962d0da08788d1f372792b11790f6286b50726c
         size: 107865280
-      - type: script
-        dest-filename: apply_extra
+      - type: shell 
         commands:
-          - chmod a+x VictronConnect.AppImage
+          - chmod a+x $(pwd)/VictronConnect.AppImage
           - $(pwd)/VictronConnect.AppImage --appimage-extract
-          - mv squashfs-root/VictronConnect.desktop squashfs-root/VictronConnect.png .
-          - sed -i 's,Exec={EXEC},Exec=/usr/bin/flatpak run '${FLATPAK_ID}' %u,' VictronConnect.desktop 
-          - sed -i 's,Icon=VictronConnect,Icon='${FLATPAK_ID}',' VictronConnect.desktop
-          - install -Dm644 VictronConnect.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
-          - install -Dm644 VictronConnect.png ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}.png
-          - mv squashfs-root/bin/* ${FLATPAK_DEST}/bin
-          - mv squashfs-root/lib/* ${FLATPAK_DEST}/lib
-          - mv squashfs-root/plugins ${FLATPAK_DEST}
-          - mv squashfs-root/qml ${FLATPAK_DEST}
+      - type: file
+        path: VictronConnect.png
+      - type: file
+        path: VictronConnect.desktop
+      - type: file
+        path: com.victronenergy.VictronConnect.metainfo.xml
 cleanup:
   - /squashfs-root
   - /include
@@ -43,6 +49,7 @@ finish-args:
   # Wayland access
   - --socket=wayland
   #Bluetooth
+  - --talk-name=org.bluez
   - --system-talk-name=org.bluez
   - --allow=bluetooth
 

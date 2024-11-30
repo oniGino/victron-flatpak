@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=VictronConnect
+Exec={EXEC}
+Icon=VictronConnect
+Comment=Monitor, configure and update firmware of all Victron products.
+Terminal=false
+Categories=Electronics;
+MimeType=x-scheme-handler/victron-connect;

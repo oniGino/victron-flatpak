@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.victronenergy.VictronConnect</id>
+  
+  <name>VictronConnect</name>
+  <summary>Monitor, configure and update equipment with ease.</summary>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </supports>
+  
+  <description>
+    <p>
+      UnOfficial Flatpak Ported directly from AppImage
+    </p>
+  </description>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="6.11" date="2024-11-29">
+      <description>Initial Relase</description>
+    </release>
+  </releases>
+
+  <launchable type="desktop-id">VictronConnect.desktop</launchable>
+</component>
+

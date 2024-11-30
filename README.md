@@ -1,4 +1,4 @@
-# Unofficial VictronConnect AppImage to Flatpak
+# UnOfficial VictronConnect AppImage to Flatpak
 
 
 A simple flatpak that strips the Victron Official AppImage and places all contents into a flatpak
