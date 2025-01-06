@@ -1,6 +1,6 @@
 id: com.victronenergy.VictronConnect
 runtime: org.kde.Platform
-version: 6.11
+version: 6.12
 sdk: org.kde.Sdk
 runtime-version: '6.5'
 command: VictronConnect
@@ -24,10 +24,10 @@ modules:
       - type: file 
         only-arches:
           - x86_64
-        url: https://www.victronenergy.com/upload/software/VictronConnect-x86_64-v6.11.AppImage
+        url: https://www.victronenergy.com/upload/software/VictronConnect-x86_64-v6.12.AppImage
         dest-filename: VictronConnect.AppImage
-        sha256: 1bdbe636abc02506ed641e763962d0da08788d1f372792b11790f6286b50726c
-        size: 107865280
+        sha256: 3d78684b94257a7c71fdb4b4f89e777fafc3e19f50fc214ca27bd2c92525cd50
+        size: 107934912
       - type: shell 
         commands:
           - chmod a+x $(pwd)/VictronConnect.AppImage
