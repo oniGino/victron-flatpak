@@ -1,3 +1,5 @@
+#!/bin/sh
+
 sudo flatpak-builder \
   builddir \
   com.victronenergy.VictronConnect.yml \
@@ -6,3 +8,5 @@ sudo flatpak-builder \
   --install \
   --repo=repo \
   --default-branch=stable
+
+#flatpak build-bundle ./repo VictronConnect.flatpak com.victronenergy.VictronConnect

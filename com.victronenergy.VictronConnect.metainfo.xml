@@ -3,10 +3,14 @@
   <id>com.victronenergy.VictronConnect</id>
   
   <name>VictronConnect</name>
-  <summary>Monitor, configure and update equipment with ease.</summary>
+  <summary>Monitor, configure and update Victron equipment with ease</summary>
+  <url type="homepage">https://www.victronenergy.com/support-and-downloads/software</url>
+  <url type="contact">https://github.com/oniGino/victron-flatpak</url>
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
-  
+  <developer id="com.github">
+      <name>oniGino</name>
+  </developer>
   <supports>
     <control>pointing</control>
     <control>keyboard</control>
@@ -14,17 +18,16 @@
   </supports>
   
   <description>
-    <p>
-      UnOfficial Flatpak Ported directly from AppImage
-    </p>
+    <p>UnOfficial Flatpak Ported directly from AppImage
+      Do not file bugs with Victron</p>
   </description>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release version="6.12" date="2024-11-29">
-      <description>Initial Relase</description>
+    <release version="6.14" date="2025-01-29">
+      <description>Initial Release</description>
     </release>
   </releases>
 
-  <launchable type="desktop-id">VictronConnect.desktop</launchable>
+  <launchable type="desktop-id">com.victronenergy.VictronConnect.desktop</launchable>
 </component>
 
