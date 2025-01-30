@@ -1,6 +1,6 @@
 id: com.victronenergy.VictronConnect
 runtime: org.kde.Platform
-version: 6.14
+version: '6.14'
 sdk: org.kde.Sdk
 runtime-version: '6.5'
 command: VictronConnect

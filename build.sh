@@ -9,4 +9,4 @@ sudo flatpak-builder \
   --repo=repo \
   --default-branch=stable
 
-#flatpak build-bundle ./repo VictronConnect.flatpak com.victronenergy.VictronConnect
+flatpak build-bundle repo VictronConnect.flatpak com.victronenergy.VictronConnect stable
