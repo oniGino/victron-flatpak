@@ -1,6 +1,6 @@
 id: com.victronenergy.VictronConnect
 runtime: org.kde.Platform
-version: '6.14'
+version: '6.16'
 sdk: org.kde.Sdk
 runtime-version: '6.5'
 command: VictronConnect
@@ -24,10 +24,10 @@ modules:
       - type: file 
         only-arches:
           - x86_64
-        url: https://www.victronenergy.com/upload/software/VictronConnect-x86_64-v6.14.AppImage
+        url: https://www.victronenergy.com/upload/software/VictronConnect-x86_64-v6.16.AppImage
         dest-filename: VictronConnect.AppImage
-        sha256: 425745e2dbc162716f1a037e72ea5944cb77b73ba2032bd7376e727039fe5625
-        size: 108754112
+        sha256: bbeeef3cf1f5f16941a714c3a6e007fcde173b24637c90f2aa795ae0ad2d3414
+        size: 110613696
       - type: shell 
         commands:
           - chmod a+x $(pwd)/VictronConnect.AppImage
@@ -51,4 +51,4 @@ finish-args:
   - --talk-name=org.bluez
   - --system-talk-name=org.bluez
   - --allow=bluetooth
-
+  - --filesystem=xdg-download
