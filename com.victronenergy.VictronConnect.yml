@@ -50,3 +50,4 @@ finish-args:
   - --system-talk-name=org.bluez
   - --allow=bluetooth
   - --filesystem=xdg-download
+  - --share=network
